@@ -19,8 +19,8 @@ const ActionLogger = ({ onActionLogged }: ActionLoggerProps) => {
     
     if (!action.trim()) {
       toast({
-        title: "Action requise",
-        description: "Veuillez décrire l'acte de bienveillance que vous avez accompli.",
+        title: "Action required",
+        description: "Please describe the act of kindness you performed.",
         variant: "destructive",
       });
       return;
@@ -28,15 +28,15 @@ const ActionLogger = ({ onActionLogged }: ActionLoggerProps) => {
 
     setIsSubmitting(true);
     
-    // Simulation d'un délai de sauvegarde pour une meilleure UX
+    // Simulate saving delay for better UX
     setTimeout(() => {
       onActionLogged(action.trim());
       setAction('');
       setIsSubmitting(false);
       
       toast({
-        title: "Action enregistrée !",
-        description: "Votre acte de bienveillance a été ajouté à votre historique.",
+        title: "Action saved!",
+        description: "Your act of kindness has been added to your history.",
       });
     }, 500);
   };
@@ -47,20 +47,20 @@ const ActionLogger = ({ onActionLogged }: ActionLoggerProps) => {
         <div className="flex items-center gap-3 mb-4">
           <PlusCircle className="w-6 h-6 text-primary" />
           <h3 className="text-xl font-semibold text-foreground">
-            Enregistrer une action
+            Log a Kindness Action
           </h3>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <Label htmlFor="action" className="text-base font-medium text-foreground">
-              Décrivez votre acte de bienveillance
+              Describe your act of kindness
             </Label>
             <Textarea
               id="action"
               value={action}
               onChange={(e) => setAction(e.target.value)}
-              placeholder="Exemple : J'ai aidé ma voisine à porter ses courses..."
+              placeholder="Example: I helped my neighbor carry her groceries..."
               className="mt-2 min-h-[100px] resize-none"
               disabled={isSubmitting}
             />
@@ -74,12 +74,12 @@ const ActionLogger = ({ onActionLogged }: ActionLoggerProps) => {
             {isSubmitting ? (
               <>
                 <Save className="w-4 h-4 mr-2 animate-pulse" />
-                Enregistrement...
+                Saving...
               </>
             ) : (
               <>
                 <Save className="w-4 h-4 mr-2" />
-                Enregistrer l'action
+                Save Action
               </>
             )}
           </Button>

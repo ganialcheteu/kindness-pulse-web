@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { Heart, Sparkles, Menu, X } from 'lucide-react';
-import KindnessReminder from './KindnessReminder';
-import ActionLogger from './ActionLogger';
-import StreakCounter from './StreakCounter';
-import ActionHistory from './ActionHistory';
-import heroImage from '../assets/hero-tanzanian-woman.jpg';
+import { useState, useEffect } from "react";
+import { Heart, Sparkles, Menu, X } from "lucide-react";
+import KindnessReminder from "./KindnessReminder";
+import ActionLogger from "./ActionLogger";
+import StreakCounter from "./StreakCounter";
+import ActionHistory from "./ActionHistory";
+import heroImage from "../assets/hero-tanzanian-woman.jpg";
 
 interface KindnessAction {
   id: string;
@@ -19,7 +19,7 @@ const KindnessApp = () => {
 
   useEffect(() => {
     // Charger les actions depuis le localStorage
-    const savedActions = localStorage.getItem('kindnessActions');
+    const savedActions = localStorage.getItem("kindnessActions");
     if (savedActions) {
       setActions(JSON.parse(savedActions));
     }
@@ -27,7 +27,7 @@ const KindnessApp = () => {
 
   const saveActions = (newActions: KindnessAction[]) => {
     setActions(newActions);
-    localStorage.setItem('kindnessActions', JSON.stringify(newActions));
+    localStorage.setItem("kindnessActions", JSON.stringify(newActions));
   };
 
   const handleActionCompleted = (action: string) => {
@@ -55,7 +55,7 @@ const KindnessApp = () => {
   };
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
 
@@ -66,37 +66,39 @@ const KindnessApp = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
+            <a href="/">
             <div className="flex items-center gap-3">
               <div className="text-kindness font-righteous text-2xl md:text-3xl font-bold tracking-tight hover:text-kindness/90 transition-colors cursor-pointer">
-                goodness
+                kindness
               </div>
             </div>
+            </a>
 
             {/* Navigation Desktop */}
             <div className="hidden md:flex items-center gap-6">
-              <button 
-                onClick={() => scrollToSection('reminder')}
+              <button
+                onClick={() => scrollToSection("reminder")}
                 className="text-foreground hover:text-kindness transition-colors font-medium"
               >
-                Rappel
+                Remind
               </button>
-              <button 
-                onClick={() => scrollToSection('stats')}
+              <button
+                onClick={() => scrollToSection("stats")}
                 className="text-foreground hover:text-kindness transition-colors font-medium"
               >
-                Statistiques
+                Statistics
               </button>
-              <button 
-                onClick={() => scrollToSection('logger')}
+              <button
+                onClick={() => scrollToSection("logger")}
                 className="text-foreground hover:text-kindness transition-colors font-medium"
               >
-                Ajouter
+                Add
               </button>
-              <button 
-                onClick={() => scrollToSection('history')}
+              <button
+                onClick={() => scrollToSection("history")}
                 className="text-foreground hover:text-kindness transition-colors font-medium"
               >
-                Historique
+                History
               </button>
             </div>
 
@@ -113,29 +115,29 @@ const KindnessApp = () => {
           {isMobileMenuOpen && (
             <div className="md:hidden border-t border-border bg-card">
               <div className="py-2 space-y-1">
-                <button 
-                  onClick={() => scrollToSection('reminder')}
+                <button
+                  onClick={() => scrollToSection("reminder")}
                   className="w-full text-left px-4 py-2 text-foreground hover:bg-accent transition-colors"
                 >
-                  Rappel du jour
+                  Reminder of the day
                 </button>
-                <button 
-                  onClick={() => scrollToSection('stats')}
+                <button
+                  onClick={() => scrollToSection("stats")}
                   className="w-full text-left px-4 py-2 text-foreground hover:bg-accent transition-colors"
                 >
-                  Statistiques
+                  Statistics
                 </button>
-                <button 
-                  onClick={() => scrollToSection('logger')}
+                <button
+                  onClick={() => scrollToSection("logger")}
                   className="w-full text-left px-4 py-2 text-foreground hover:bg-accent transition-colors"
                 >
-                  Ajouter une action
+                  Add action
                 </button>
-                <button 
-                  onClick={() => scrollToSection('history')}
+                <button
+                  onClick={() => scrollToSection("history")}
                   className="w-full text-left px-4 py-2 text-foreground hover:bg-accent transition-colors"
                 >
-                  Historique
+                  History
                 </button>
               </div>
             </div>
@@ -144,31 +146,31 @@ const KindnessApp = () => {
       </nav>
 
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[70vh] bg-cover bg-center bg-no-repeat flex items-center"
+      <section
+        className="relative min-h-[90vh] bg-cover bg-center bg-no-repeat flex items-center py-4"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-            Cultivez la <span className="text-kindness-light">Bienveillance</span>
+            Cultivate <span className="text-kindness-light">kindness</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-            Transformez votre quotidien avec des gestes simples de gentillesse. 
-            Chaque action compte pour construire un monde plus bienveillant.
+            Transform your daily life with simple acts of kindness. Every action
+            counts in building a kinder world.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => scrollToSection('reminder')}
+            <button
+              onClick={() => scrollToSection("reminder")}
               className="bg-kindness text-kindness-foreground px-8 py-3 rounded-lg font-semibold hover:bg-kindness/90 transition-all transform hover:scale-105 shadow-lg"
             >
-              Découvrir mon rappel du jour
+              Discover my reminder of the day
             </button>
-            <button 
-              onClick={() => scrollToSection('logger')}
-              className="bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-3 rounded-lg font-semibold hover:bg-white/30 transition-all transform hover:scale-105"
+            <button
+              onClick={() => scrollToSection("logger")}
+              className="bg-white/20 backdrop-blur-sm text-green-500 border border-white/30 px-8 py-3 rounded-lg font-semibold hover:bg-white/30 transition-all transform hover:scale-105"
             >
-              Partager une action
+              Share an action
             </button>
           </div>
         </div>
@@ -185,7 +187,8 @@ const KindnessApp = () => {
               </div>
             </div>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-              Suivez vos actions positives et construisez des habitudes durables pour un impact positif dans votre communauté.
+              Track your positive actions and build lasting habits for a
+              positive impact in your community.
             </p>
           </div>
         </div>
@@ -197,10 +200,13 @@ const KindnessApp = () => {
           {/* Section Rappel du jour */}
           <section id="reminder" className="scroll-mt-20">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-semibold text-foreground mb-3">Votre rappel quotidien</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
+                Your daily reminder
+              </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Chaque jour, découvrez une nouvelle suggestion d'action bienveillante adaptée à votre quotidien. 
-                Ces petits gestes peuvent transformer votre journée et celle des autres.
+                Every day, discover a new suggestion for kind actions adapted to
+                your daily life. These small gestures can transform your day and
+                that of others.
               </p>
             </div>
             <div className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -211,10 +217,12 @@ const KindnessApp = () => {
           {/* Section Statistiques */}
           <section id="stats" className="scroll-mt-20">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-semibold text-foreground mb-3">Vos accomplissements</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
+                Your accomplishments
+              </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Suivez votre progression et célébrez chaque action positive. 
-                Construisez votre série d'actions bienveillantes jour après jour.
+                Track your progress and celebrate each positive action. Build
+                your streak of kind actions day by day.
               </p>
             </div>
             <div className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -225,10 +233,12 @@ const KindnessApp = () => {
           {/* Section Enregistrement */}
           <section id="logger" className="scroll-mt-20">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-semibold text-foreground mb-3">Partagez vos actions</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
+                Share your actions
+              </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Ajoutez vos propres actions de bienveillance à votre journal personnel. 
-                Chaque geste compte et mérite d'être célébré et mémorisé.
+                Add your own acts of kindness to your personal journal. Every
+                gesture counts and deserves to be celebrated and remembered.
               </p>
             </div>
             <div className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -239,10 +249,12 @@ const KindnessApp = () => {
           {/* Section Historique */}
           <section id="history" className="scroll-mt-20">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-semibold text-foreground mb-3">Votre journal de bienveillance</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-3">
+                Your Kindness Journal
+              </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Relisez toutes vos actions passées et voyez le chemin parcouru. 
-                Votre historique est une source d'inspiration et de motivation.
+                Review all your past actions and see how far you've come. Your
+                history is a source of inspiration and motivation.
               </p>
             </div>
             <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
@@ -258,36 +270,37 @@ const KindnessApp = () => {
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
               <div className="text-kindness font-righteous text-lg font-bold tracking-tight">
-                goodness
+                kindness
               </div>
             </div>
             <p className="text-muted-foreground mb-6">
-              Petits gestes, grands impacts. Rendez le monde un peu plus bienveillant chaque jour.
+              Small gestures, big impact. Make the world a little kinder every
+              day.
             </p>
             <div className="flex justify-center gap-6 text-sm text-muted-foreground">
-              <button 
-                onClick={() => scrollToSection('reminder')}
+              <button
+                onClick={() => scrollToSection("reminder")}
                 className="hover:text-kindness transition-colors"
               >
-                Rappels
+                Reminders
               </button>
-              <button 
-                onClick={() => scrollToSection('stats')}
+              <button
+                onClick={() => scrollToSection("stats")}
                 className="hover:text-kindness transition-colors"
               >
                 Stats
               </button>
-              <button 
-                onClick={() => scrollToSection('logger')}
+              <button
+                onClick={() => scrollToSection("logger")}
                 className="hover:text-kindness transition-colors"
               >
-                Ajouter
+                Add
               </button>
-              <button 
-                onClick={() => scrollToSection('history')}
+              <button
+                onClick={() => scrollToSection("history")}
                 className="hover:text-kindness transition-colors"
               >
-                Historique
+                History
               </button>
             </div>
           </div>

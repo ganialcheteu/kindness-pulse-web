@@ -60,31 +60,32 @@ const StreakCounter = ({ totalActions }: StreakCounterProps) => {
   };
 
   const getStreakMessage = () => {
-    if (currentStreak === 0) return "Commencez votre série dès aujourd'hui !";
-    if (currentStreak === 1) return "Excellent début ! Continuez demain.";
-    if (currentStreak < 7) return `${currentStreak} jours de suite ! Formidable !`;
-    if (currentStreak < 30) return `${currentStreak} jours consécutifs ! Incroyable !`;
-    return `${currentStreak} jours ! Vous êtes un champion de la bienveillance !`;
-  };
+  if (currentStreak === 0) return "Start your kindness streak today!";
+  if (currentStreak === 1) return "Great start! Keep it going tomorrow.";
+  if (currentStreak < 7) return `${currentStreak} days in a row! Awesome job!`;
+  if (currentStreak < 30) return `${currentStreak} consecutive days! Incredible!`;
+  return `${currentStreak} days! You're a kindness champion!`;
+};
+
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 fade-in">
       <Card className="kindness-card text-center">
         <Flame className={`w-8 h-8 mx-auto mb-3 ${currentStreak > 0 ? 'text-accent-warm' : 'text-muted-foreground'}`} />
         <h3 className="text-2xl font-bold text-foreground">{currentStreak}</h3>
-        <p className="text-sm text-muted-foreground">Série actuelle</p>
+        <p className="text-sm text-muted-foreground">Current series</p>
       </Card>
 
       <Card className="kindness-card text-center">
         <Trophy className="w-8 h-8 mx-auto mb-3 text-kindness" />
         <h3 className="text-2xl font-bold text-foreground">{longestStreak}</h3>
-        <p className="text-sm text-muted-foreground">Record personnel</p>
+        <p className="text-sm text-muted-foreground">Personal record</p>
       </Card>
 
       <Card className="kindness-card text-center">
         <Calendar className="w-8 h-8 mx-auto mb-3 text-primary" />
         <h3 className="text-2xl font-bold text-foreground">{totalActions}</h3>
-        <p className="text-sm text-muted-foreground">Total d'actions</p>
+        <p className="text-sm text-muted-foreground">Total shares</p>
       </Card>
 
       <div className="md:col-span-3 mt-2">

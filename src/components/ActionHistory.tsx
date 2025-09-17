@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState } from 'react'; 
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { History, Calendar, Heart, ChevronDown, ChevronUp } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
-import { fr } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale'; // switched from `fr` to `enUS`
 
 interface KindnessAction {
   id: string;
@@ -30,7 +30,7 @@ const ActionHistory = ({ actions }: ActionHistoryProps) => {
     const date = new Date(dateString);
     return formatDistanceToNow(date, { 
       addSuffix: true, 
-      locale: fr 
+      locale: enUS 
     });
   };
 
@@ -55,7 +55,7 @@ const ActionHistory = ({ actions }: ActionHistoryProps) => {
   const getMonthName = (monthString: string) => {
     const [year, month] = monthString.split('-');
     const date = new Date(parseInt(year), parseInt(month) - 1);
-    return date.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   };
 
   if (actions.length === 0) {
@@ -63,10 +63,10 @@ const ActionHistory = ({ actions }: ActionHistoryProps) => {
       <Card className="kindness-card text-center">
         <History className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
         <h3 className="text-xl font-semibold text-foreground mb-2">
-          Votre historique de bienveillance
+          Your Kindness History
         </h3>
         <p className="text-muted-foreground">
-          Vos actions de bienveillance apparaîtront ici une fois que vous commencerez à les enregistrer.
+          Your kindness actions will appear here once you start recording them.
         </p>
       </Card>
     );
@@ -79,7 +79,7 @@ const ActionHistory = ({ actions }: ActionHistoryProps) => {
           <div className="flex items-center gap-3">
             <History className="w-6 h-6 text-primary" />
             <h3 className="text-xl font-semibold text-foreground">
-              Historique ({actions.length} actions)
+              History ({actions.length} actions)
             </h3>
           </div>
 
@@ -89,7 +89,7 @@ const ActionHistory = ({ actions }: ActionHistoryProps) => {
               onChange={(e) => setSelectedMonth(e.target.value)}
               className="px-3 py-1 border border-border rounded-md text-sm bg-background"
             >
-              <option value="all">Tous les mois</option>
+              <option value="all">All months</option>
               {getMonths().map(month => (
                 <option key={month} value={month}>
                   {getMonthName(month)}
@@ -131,7 +131,7 @@ const ActionHistory = ({ actions }: ActionHistoryProps) => {
               className="text-primary hover:text-primary/80"
             >
               <ChevronDown className="w-4 h-4 mr-2" />
-              Voir plus ({sortedActions.length - 5} autres)
+              Show more ({sortedActions.length - 5} more)
             </Button>
           </div>
         )}
@@ -144,7 +144,7 @@ const ActionHistory = ({ actions }: ActionHistoryProps) => {
               className="text-primary hover:text-primary/80"
             >
               <ChevronUp className="w-4 h-4 mr-2" />
-              Voir moins
+              Show less
             </Button>
           </div>
         )}

@@ -4,22 +4,23 @@ import { Button } from '@/components/ui/button';
 import { Heart, Sparkles } from 'lucide-react';
 
 const kindnessIdeas = [
-  "Envoyez un message d'encouragement à un ami",
-  "Complimentez sincèrement quelqu'un aujourd'hui",
-  "Aidez un collègue avec une tâche difficile",
-  "Écoutez attentivement quelqu'un qui a besoin de parler",
-  "Laissez une note positive à un proche",
-  "Offrez votre place dans les transports en commun",
-  "Partagez un sourire avec un inconnu",
-  "Remerciez quelqu'un qui travaille dur",
-  "Proposez votre aide sans qu'on vous le demande",
-  "Pardonnez une petite erreur avec bienveillance",
-  "Apportez un café à un collègue",
-  "Appelez un proche pour prendre de ses nouvelles",
-  "Donnez un pourboire généreux",
-  "Laissez passer quelqu'un devant vous dans la queue",
-  "Complimentez le travail de quelqu'un publiquement"
+  "Send an encouraging message to a friend",
+  "Give someone a sincere compliment today",
+  "Help a colleague with a difficult task",
+  "Listen attentively to someone who needs to talk",
+  "Leave a positive note for someone you care about",
+  "Offer your seat on public transport",
+  "Share a smile with a stranger",
+  "Thank someone who's working hard",
+  "Offer your help without being asked",
+  "Forgive a small mistake with kindness",
+  "Bring a coffee to a colleague",
+  "Call a loved one to check in",
+  "Leave a generous tip",
+  "Let someone go ahead of you in line",
+  "Publicly compliment someone’s work"
 ];
+
 
 interface KindnessReminderProps {
   onActionCompleted: (action: string) => void;
@@ -67,7 +68,7 @@ const KindnessReminder = ({ onActionCompleted }: KindnessReminderProps) => {
         <div className="mb-4">
           <Heart className="w-12 h-12 text-kindness mx-auto mb-3" />
           <h2 className="text-2xl font-semibold text-foreground mb-2">
-            Rappel du jour
+            reminder daily
           </h2>
         </div>
 
@@ -87,7 +88,7 @@ const KindnessReminder = ({ onActionCompleted }: KindnessReminderProps) => {
           {isCompleted ? (
             <>
               <Heart className="w-4 h-4 mr-2" />
-              Accompli aujourd'hui !
+              Done today !
             </>
           ) : (
             'Marquer comme fait'
@@ -96,7 +97,7 @@ const KindnessReminder = ({ onActionCompleted }: KindnessReminderProps) => {
 
         {isCompleted && (
           <p className="text-kindness text-sm mt-3 font-medium">
-            Merci pour votre bienveillance ! 💚
+            Thank you for your kindness ! 💚
           </p>
         )}
       </Card>
