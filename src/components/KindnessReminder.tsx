@@ -91,7 +91,7 @@ const KindnessReminder = ({ onActionCompleted }: KindnessReminderProps) => {
               Done today !
             </>
           ) : (
-            'Marquer comme fait'
+            'Mark as done'
           )}
         </Button>
 
