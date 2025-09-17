@@ -4,6 +4,7 @@ import KindnessReminder from './KindnessReminder';
 import ActionLogger from './ActionLogger';
 import StreakCounter from './StreakCounter';
 import ActionHistory from './ActionHistory';
+import heroImage from '../assets/hero-tanzanian-woman.jpg';
 
 interface KindnessAction {
   id: string;
@@ -66,8 +67,8 @@ const KindnessApp = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="bg-kindness text-kindness-foreground rounded-lg px-3 py-1 font-bold text-lg hover:bg-kindness/90 transition-colors cursor-pointer">
-                good app
+              <div className="text-kindness font-righteous text-2xl md:text-3xl font-bold tracking-tight hover:text-kindness/90 transition-colors cursor-pointer">
+                goodness
               </div>
             </div>
 
@@ -142,22 +143,49 @@ const KindnessApp = () => {
         </div>
       </nav>
 
-      {/* En-tête Hero */}
+      {/* Hero Section */}
+      <section 
+        className="relative min-h-[70vh] bg-cover bg-center bg-no-repeat flex items-center"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
+            Cultivez la <span className="text-kindness-light">Bienveillance</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+            Transformez votre quotidien avec des gestes simples de gentillesse. 
+            Chaque action compte pour construire un monde plus bienveillant.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={() => scrollToSection('reminder')}
+              className="bg-kindness text-kindness-foreground px-8 py-3 rounded-lg font-semibold hover:bg-kindness/90 transition-all transform hover:scale-105 shadow-lg"
+            >
+              Découvrir mon rappel du jour
+            </button>
+            <button 
+              onClick={() => scrollToSection('logger')}
+              className="bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-3 rounded-lg font-semibold hover:bg-white/30 transition-all transform hover:scale-105"
+            >
+              Partager une action
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* En-tête de contenu */}
       <header className="bg-card border-b border-border">
-        <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="text-center">
             <div className="inline-flex items-center gap-3 mb-4">
               <div className="relative">
-                <Heart className="w-10 h-10 text-kindness" />
-                <Sparkles className="w-5 h-5 text-accent-warm absolute -top-1 -right-1" />
+                <Heart className="w-8 h-8 text-kindness" />
+                <Sparkles className="w-4 h-4 text-accent-warm absolute -top-1 -right-1" />
               </div>
             </div>
-            <h1 className="text-4xl font-bold text-foreground mb-4">
-              Goodness App
-            </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-              Cultivez l'habitude de la gentillesse avec des rappels quotidiens personnalisés. 
-              Suivez vos actions positives et construisez des habitudes durables pour un impact positif.
+              Suivez vos actions positives et construisez des habitudes durables pour un impact positif dans votre communauté.
             </p>
           </div>
         </div>
@@ -229,8 +257,8 @@ const KindnessApp = () => {
         <div className="max-w-4xl mx-auto px-4 py-12">
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="bg-kindness text-kindness-foreground rounded px-2 py-1 text-sm font-semibold">
-                good app
+              <div className="text-kindness font-righteous text-lg font-bold tracking-tight">
+                goodness
               </div>
             </div>
             <p className="text-muted-foreground mb-6">

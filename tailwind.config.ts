@@ -71,6 +71,7 @@ export default {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
+        righteous: ['Righteous', 'cursive'],
       },
       borderRadius: {
         lg: "var(--radius)",
